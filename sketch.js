@@ -14,23 +14,23 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(20); 
 
   let level = amp.getLevel();
 
-  // 중앙 원(음량으로 변함)
+  // 중앙 원 (음량에 따라 크기만 변화함)
   let circleSize = map(level, 0, 0.25, 60, 160);
 
   noStroke();
-  fill(200); 
+  fill(20); 
   ellipse(width / 2, height / 2, circleSize);
 
   let baseRadius = circleSize / 2 + 12;
 
-  //막대 그래프 line()함수 사용함
+  // 막대 그래프
   strokeWeight(3);
-  let lineLength = 35; // 고정 길이
-  stroke(200);        
+  let lineLength = 35;
+  stroke(200);       
 
   for (let i = 0; i < barCount; i++) {
     let angle = map(i, 0, barCount, 0, 360);
@@ -41,7 +41,7 @@ function draw() {
     let x2 = width / 2 + cos(angle) * (baseRadius + lineLength);
     let y2 = height / 2 + sin(angle) * (baseRadius + lineLength);
 
-    line(x1, y1, x2, y2);
+    line(x1, y1, x2, y2); // line() 기본 도형
   }
 
   // 안내 텍스트
